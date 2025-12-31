@@ -3,8 +3,8 @@ import random
 import time
 import math
 
-TEXT = "HAPPY NEW YEAR 2026"
-WARNA = [1, 2, 3, 4, 5, 6, 7]
+text = "HAPPY NEW YEAR 2026"
+warna = [1, 2, 3, 4, 5, 6, 7]
 
 def textTampil(stdscr, y, text):
     h, w = stdscr.getmaxyx()
@@ -17,7 +17,7 @@ def kembangApi(stdscr):
     y = h - 2
     peak = random.randint(h // 4, h // 2)
 
-    color = random.choice(WARNA)
+    color = random.choice(warna)
 
     while y > peak:
         stdscr.clear()
@@ -35,11 +35,11 @@ def kembangApi(stdscr):
             ex = int(x + r * math.cos(rad))
             ey = int(y + r * math.sin(rad))
             if 0 < ey < h and 0 < ex < w:
-                color = random.choice(WARNA)
+                color = random.choice(warna)
                 stdscr.attron(curses.color_pair(color))
                 stdscr.addstr(ey, ex, "*")
                 stdscr.attroff(curses.color_pair(color))
-        textTampil(stdscr, h // 2, TEXT)
+        textTampil(stdscr, h // 2, text)
         stdscr.refresh()
         time.sleep(0.05)
 
